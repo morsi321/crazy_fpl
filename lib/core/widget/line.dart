@@ -1,10 +1,11 @@
+import 'package:crazy_fpl/core/constance/colors.dart';
 import 'package:flutter/material.dart';
 
-import '../utils/color_constant.dart';
 
 class Line extends StatelessWidget {
-  const Line({Key? key, this.paddingHeight}) : super(key: key);
+  const Line({Key? key, this.paddingHeight, this.color}) : super(key: key);
   final double? paddingHeight;
+  final Color ?color ;
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +13,9 @@ class Line extends StatelessWidget {
       margin: EdgeInsets.symmetric(
         vertical: paddingHeight ?? 20,
       ),
-      color: ColorConstant.gray1,
-      height: 1.5,
+
+      color: color ?? AppColors.whiteLight,
+      height: 5,
       width: double.infinity,
     );
   }

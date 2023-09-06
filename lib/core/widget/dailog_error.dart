@@ -1,18 +1,19 @@
 import 'package:crazy_fpl/core/extension/MediaQueryValues.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'BoxColor.dart';
 import 'blurBody.dart';
 
-void dialogError(context, String? message, Future<void> Function() retryFun,
+void dialogError(context, String? message, void Function() retryFun,
     {Future<void> Function()? okFun}) {
   showDialog(
       barrierColor: Colors.black.withOpacity(0.2),
       // barrierDismissible: false,
       context: context,
       builder: (
-        context,
-      ) =>
+          context,
+          ) =>
           Center(
             child: BlurBody(
                 borderRadius: BorderRadius.circular(10),
@@ -64,9 +65,8 @@ void dialogError(context, String? message, Future<void> Function() retryFun,
                         children: [
                           GestureDetector(
                               onTap: () {
-                                Navigator.of(context)
-                                    .popUntil((route) => route.isFirst);
                                 retryFun();
+                                context.pop();
                               },
                               child: const BoxColor(
                                 width: 100,
@@ -78,8 +78,7 @@ void dialogError(context, String? message, Future<void> Function() retryFun,
                               )),
                           GestureDetector(
                               onTap: () {
-                                Navigator.of(context)
-                                    .popUntil((route) => route.isFirst);
+                                Navigator.of(context).pop();
                               },
                               child: const BoxColor(
                                 width: 100,

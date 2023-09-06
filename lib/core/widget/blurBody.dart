@@ -1,7 +1,6 @@
 import 'package:blur/blur.dart';
 import 'package:crazy_fpl/core/extension/MediaQueryValues.dart';
-import 'package:crazy_fpl/core/extension/MediaQueryValues.dart';
-import 'package:flutter/gestures.dart';
+
 import 'package:flutter/material.dart';
 
 
@@ -35,7 +34,7 @@ class BlurBody extends StatelessWidget {
                 top: Radius.circular(30),
               ),
           child: Image.asset(
-            backgroundImage ?? "assets/images/sinai.jpeg",
+            backgroundImage ?? "assets/images/siwnai.jpeg",
             height: height ?? context.height * .63,
             width: width ?? double.infinity,
             fit: BoxFit.fill,

@@ -1,4 +1,10 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-const Color mainColor = Color.fromRGBO(28, 22, 54, .9);
-const Color secondColor = Color.fromRGBO(28, 22, 54, .2);
+
+ class AppColors {
+
+  static Color mainColor = const Color.fromRGBO(28, 22, 54, .9);
+static   Color secondColor = const Color.fromRGBO(28, 22, 54, .2);
+static   Color whiteLight=   Colors.white.withOpacity(0.08);
+
+}

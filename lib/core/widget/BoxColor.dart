@@ -1,6 +1,8 @@
 import 'package:crazy_fpl/core/extension/MediaQueryValues.dart';
 import 'package:flutter/material.dart';
 
+import '../constance/colors.dart';
+
 class BoxColor extends StatelessWidget {
   const BoxColor({
     Key? key,
@@ -22,17 +24,18 @@ class BoxColor extends StatelessWidget {
       width: width ?? context.width * .44,
       height: height ?? context.height * .07,
       decoration: BoxDecoration(
-        color: color ?? Colors.white.withOpacity(.3),
+        color: color ?? AppColors.whiteLight,
         borderRadius: borderRadius ?? BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            spreadRadius: 7,
+            color: Colors.black.withOpacity(0.2),
             blurRadius: 5,
-            offset: const Offset(0, 1),
-          ), // changes position of shadow
+            spreadRadius: 2,
+            offset: const Offset(0, 4),
+          ),
         ],
-      ),
+
+    ),
       child: Center(child: child),
     );
   }
