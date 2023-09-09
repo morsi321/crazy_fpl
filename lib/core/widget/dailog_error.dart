@@ -9,7 +9,7 @@ void dialogError(context, String? message, void Function() retryFun,
     {Future<void> Function()? okFun}) {
   showDialog(
       barrierColor: Colors.black.withOpacity(0.2),
-      // barrierDismissible: false,
+      barrierDismissible: false,
       context: context,
       builder: (
           context,

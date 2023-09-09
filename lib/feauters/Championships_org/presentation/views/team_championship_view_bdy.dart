@@ -28,7 +28,7 @@ class TeamChampionshipViewBody extends StatelessWidget {
           BackgroundImage(
             url: org.image,
             opacity: 0.1,
-            child: GirdChampionShip(championShip: org.championsShips!, name: org.name!,id: org.id!,),
+            child: GirdChampionShip(championShip: org.championsShips!, name: org.name!,id: org.id!, url: org.image!, numRound: org.countTeams!, countTeam: org.countTeams!,),
           ),
           const SizedBox(
             height: 100,

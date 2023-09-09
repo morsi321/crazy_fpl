@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/widget/dailog_error.dart';
+import '../../../../../core/widget/dailog_loading.dart';
 
 class MainScreenViewBody extends StatefulWidget {
   const MainScreenViewBody({super.key});
@@ -27,7 +28,7 @@ class _MainScreenViewBodyState extends State<MainScreenViewBody> {
         builder: (context, state) {
           if (state is GetAllOrgsLoading) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: LoadingWidget(),
             );
           } else if (state is FailureGetAllOrgs) {
             dialogError(context, "حدث خطاء غير متوقع برجاء محاولة مره اخري",

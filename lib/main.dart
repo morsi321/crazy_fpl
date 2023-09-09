@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:crazy_fpl/feauters/Championships_org/presentation/view%20model/info_org_cubit.dart';
-import 'package:crazy_fpl/feauters/leagues/Data/presentation/model%20view/leagues_cubit.dart';
+import 'package:crazy_fpl/feauters/Matches/presentation/view%20model/match_cubit.dart';
+import 'package:crazy_fpl/feauters/leagues_groups/presentaion/model%20view/league_group_cubit.dart';
 
 import 'package:crazy_fpl/feauters/main%20screen/presentation/view%20model/org_cubit.dart';
 
@@ -10,6 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/utils/app_router.dart';
 import 'core/utils/bloc_observer.dart';
+import 'feauters/leagues/presentation/model view/leagues_cubit.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -36,6 +38,10 @@ class MyApp extends StatelessWidget {
           create: (context) => InfoOrgCubit(),
         ), BlocProvider(
           create: (context) =>  LeaguesCubit(),
+        ),BlocProvider(
+          create: (context) =>  LeagueGroupCubit(),
+        ),BlocProvider(
+          create: (context) =>  MatchCubit(),
         ),
 
       ],

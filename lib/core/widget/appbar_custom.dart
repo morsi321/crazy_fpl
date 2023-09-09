@@ -33,6 +33,16 @@ class _AppBarCustomState extends State<AppBarCustom> {
                   style: const TextStyle(
                       fontSize: 20, fontFamily: 'janna', color: Colors.white))),
           backgroundColor: AppColors.secondColor,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              size: 25,
+              color: Colors.white,
+            ),
+          ),
           actions: [
            if (widget.enableMenu) IconButton(
               onPressed: () {

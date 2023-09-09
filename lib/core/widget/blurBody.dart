@@ -34,7 +34,7 @@ class BlurBody extends StatelessWidget {
                 top: Radius.circular(30),
               ),
           child: Image.asset(
-            backgroundImage ?? "assets/images/siwnai.jpeg",
+            backgroundImage ?? "assets/images/logo.png",
             height: height ?? context.height * .63,
             width: width ?? double.infinity,
             fit: BoxFit.fill,
