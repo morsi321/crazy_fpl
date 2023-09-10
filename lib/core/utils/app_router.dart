@@ -3,8 +3,8 @@ import 'package:crazy_fpl/feauters/leagues_groups/Data/modles/data_teams.dart';
 import 'package:crazy_fpl/feauters/leagues_groups/presentaion/views/groups/leagueGroupView.dart';
 import 'package:crazy_fpl/feauters/main%20screen/Data/models/org_model.dart';
 import 'package:crazy_fpl/feauters/main%20screen/presentation/view/main_screen_view.dart';
-import 'package:crazy_fpl/feauters/teams/modles/matches_team.dart';
-import 'package:crazy_fpl/feauters/teams/team_view.dart';
+import 'package:crazy_fpl/feauters/teams/presentation/roud8/round8view.dart';
+import 'package:crazy_fpl/feauters/teams/presentation/team_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,6 +12,7 @@ import '../../feauters/Championships_org/presentation/views/championship.dart';
 import '../../feauters/leagues/Data/models/info_League.dart';
 import '../../feauters/leagues/presentation/views/leagues_view.dart';
 import '../../feauters/matches league group/views/matches_league_group_view.dart';
+import '../../feauters/teams/Data/modles/matches_team.dart';
 
 class AppRouter {
   static String mainScreen = '/';
@@ -20,6 +21,7 @@ class AppRouter {
   static String team1000 = '/team1000';
   static String leagueGroups = '/LeagueGroups';
   static String teamView = '/teamView';
+  static String round8 = '/round8';
   static String matchesLeagueGroups = '/matchesLeagueGroups';
   static String matchesTeams = '/matchesTeams';
 
@@ -43,6 +45,13 @@ class AppRouter {
         path: leagues,
         builder: (BuildContext context, GoRouterState state) {
           return LeaguesView(
+            infoLeague: state.extra as InfoLeague,
+          );
+        },
+      ),GoRoute(
+        path: round8,
+        builder: (BuildContext context, GoRouterState state) {
+          return Round8view(
             infoLeague: state.extra as InfoLeague,
           );
         },

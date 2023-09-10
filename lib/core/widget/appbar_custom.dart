@@ -33,7 +33,7 @@ class _AppBarCustomState extends State<AppBarCustom> {
                   style: const TextStyle(
                       fontSize: 20, fontFamily: 'janna', color: Colors.white))),
           backgroundColor: AppColors.secondColor,
-          leading: IconButton(
+          leading: widget.enableMenu?const SizedBox() :IconButton(
             onPressed: () {
               Navigator.pop(context);
             },
