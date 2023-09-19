@@ -22,6 +22,8 @@ void main() async {
   Bloc.observer = MyBlocObserver();
 
   runApp(const MyApp());
+
+
 }
 
 class MyApp extends StatelessWidget {

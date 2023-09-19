@@ -26,6 +26,7 @@ class _AppBarCustomState extends State<AppBarCustom> {
       child: Container(
         color: Colors.white.withOpacity(.1),
         child: AppBar(
+          centerTitle: true,
           title: InkWell(
               onTap: () =>
               OrganizersRepoImpl().getAllOrganizers(),

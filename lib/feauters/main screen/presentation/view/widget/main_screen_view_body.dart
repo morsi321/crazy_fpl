@@ -23,21 +23,33 @@ class _MainScreenViewBodyState extends State<MainScreenViewBody> {
 
   @override
   Widget build(BuildContext context) {
+    final orgCubit = context.read<OrgCubit>();
     return BackgroundImage(
-      child: BlocBuilder<OrgCubit, OrgState>(
+      child: BlocConsumer<OrgCubit, OrgState>(
         builder: (context, state) {
           if (state is GetAllOrgsLoading) {
             return const Center(
               child: LoadingWidget(),
             );
-          } else if (state is FailureGetAllOrgs) {
-            dialogError(context, "حدث خطاء غير متوقع برجاء محاولة مره اخري",
-                () => context.read<OrgCubit>().getAllOrgs());
           }
 
           return ListView(
-            children: context.read<OrgCubit>().widgetsOrg,
-          );
+              children: orgCubit.widgetsOrg.isNotEmpty
+                  ? orgCubit.widgetsOrg
+                  : const [
+                      Center(
+                        child: Text(
+                          "",
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                      )
+                    ]);
+        },
+        listener: (BuildContext context, OrgState state) {
+          if (state is FailureGetAllOrgs) {
+            dialogError(context, "حدث خطاء غير متوقع برجاء محاولة مره اخري",
+                () => orgCubit.getAllOrgs());
+          }
         },
       ),
     );

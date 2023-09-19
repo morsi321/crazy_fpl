@@ -40,19 +40,29 @@ dependencies:
   blur: ^3.1.0
   dartz: ^0.10.1
   lottie: ^2.6.0
-
-
-  dio:
-#  flutter_image_compress: ^2.0.3
   cached_network_image: ^3.2.3
+  cupertino_icons: ^1.0.2
+  go_router: ^9.0.0
+  url_launcher: ^6.1.14
+
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/logo.png"
+  min_sdk_android: 21 # android min sdk min:16, defau
+
+
+#  flutter_image_compress: ^2.0.3
 #  liquid_pull_to_refresh: ^3.0.1
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
-  go_router: ^9.0.0
-  url_launcher: ^6.1.14
+
+
+
 
 dev_dependencies:
   flutter_test:
@@ -64,12 +74,20 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+flutter native splash:
+  color: "#ffffff"
+  image: assets/images/goal.png
+  dark: "#121212"
+  image_dark: assets/images/li.png
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
 flutter:
+
+
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
