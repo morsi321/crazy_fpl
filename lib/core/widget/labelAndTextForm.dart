@@ -8,11 +8,12 @@ class LabelAndTextForm extends StatelessWidget {
     this.width,
     this.controller,
     this.enable,
-    this.suffixIcon,
+    this.suffixIcon, this.onChanged,
   }) : super(key: key);
   final String label;
   final TextEditingController? controller;
   final Widget? suffixIcon;
+  final void Function(String)? onChanged;
 
   final double? width;
   final bool? enable;
@@ -35,6 +36,7 @@ class LabelAndTextForm extends StatelessWidget {
           obscureText: label == "Password" ? true : false,
           suffixIcon: suffixIcon,
           enable: enable,
+          onChanged: onChanged,
           controller: controller,
           fillColor: Colors.white.withOpacity(.1),
           style: const TextStyle(

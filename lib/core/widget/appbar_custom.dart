@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../feauters/main screen/Data/repo/org_repo_impl.dart';
 import '../constance/colors.dart';
 
 class AppBarCustom extends StatefulWidget implements PreferredSizeWidget {
@@ -27,28 +26,27 @@ class _AppBarCustomState extends State<AppBarCustom> {
         color: Colors.white.withOpacity(.1),
         child: AppBar(
           centerTitle: true,
-          title: InkWell(
-              onTap: () =>
-              OrganizersRepoImpl().getAllOrganizers(),
-              child: Text(widget.title ?? "Crazy Fantasy",
-                  style: const TextStyle(
-                      fontSize: 20, fontFamily: 'janna', color: Colors.white))),
+          title: Text(widget.title ?? "Crazy Fantasy",
+              style: const TextStyle(
+                  fontSize: 20, fontFamily: 'janna', color: Colors.white)),
           backgroundColor: AppColors.secondColor,
           leading: widget.enableMenu?const SizedBox() :IconButton(
             onPressed: () {
               Navigator.pop(context);
             },
             icon: const Icon(
-              Icons.arrow_back_ios,
-              size: 25,
-              color: Colors.white,
+                Icons.arrow_back_ios,
+                size: 25,
+                color: Colors.white,
+              ),
             ),
-          ),
+
           actions: [
            if (widget.enableMenu) IconButton(
-              onPressed: () {
-              },
+              onPressed: () =>
+                Scaffold.of(context).openDrawer(),
               icon: const Icon(
+
                 Icons.menu,
                 size: 30,
                 color: Colors.white,

@@ -39,7 +39,6 @@ class TextFromCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: height ?? 53,
         width: width ?? context.width * 0.40,
         child: TextFormField(
             // enabled: enable??true,
