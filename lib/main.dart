@@ -6,6 +6,7 @@ import 'package:crazy_fpl/feauters/leagues_groups/presentaion/model%20view/leagu
 import 'package:crazy_fpl/feauters/login_and_signup/presentation/model%20view/login_and_sign_up_cubit.dart';
 
 import 'package:crazy_fpl/feauters/main%20screen/presentation/view%20model/org_cubit.dart';
+import 'package:crazy_fpl/feauters/open_champion/Presentation/View_model/open_champion_cubit.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -25,8 +26,6 @@ void main() async {
   Bloc.observer = MyBlocObserver();
 
   runApp(const MyApp());
-
-
 }
 
 class MyApp extends StatelessWidget {
@@ -39,22 +38,27 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => LoginAndSignUpCubit(),
-        ),BlocProvider(
-          create: (context) => ControlCaptainCubit(),
-        ), BlocProvider(
-          create: (context) => OrgCubit(),
-        ), BlocProvider(
-          create: (context) => InfoOrgCubit(),
-        ), BlocProvider(
-          create: (context) =>  LeaguesCubit(),
-        ),BlocProvider(
-          create: (context) =>  LeagueGroupCubit(),
-        ),BlocProvider(
-          create: (context) =>  MatchCubit(),
-        ),BlocProvider(
-          create: (context) =>  PropertiesTeamCubit()
         ),
-
+        BlocProvider(
+          create: (context) => ControlCaptainCubit(),
+        ),
+        BlocProvider(
+          create: (context) => OrgCubit(),
+        ),
+        BlocProvider(
+          create: (context) => InfoOrgCubit(),
+        ),
+        BlocProvider(
+          create: (context) => LeaguesCubit(),
+        ),
+        BlocProvider(
+          create: (context) => LeagueGroupCubit(),
+        ),
+        BlocProvider(
+          create: (context) => MatchCubit(),
+        ),
+        BlocProvider(create: (context) => PropertiesTeamCubit()),
+        BlocProvider(create: (context) => OpenChampionCubit()),
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,

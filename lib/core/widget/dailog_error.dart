@@ -5,15 +5,15 @@ import 'package:go_router/go_router.dart';
 import 'BoxColor.dart';
 import 'blurBody.dart';
 
-void dialogError(context, String? message, void Function() retryFun,
-    {Future<void> Function()? okFun}) {
+void dialogCustom(context, String? message, void Function() retryFun,
+    {Future<void> Function()? okFun, bool isError = true}) {
   showDialog(
       barrierColor: Colors.black.withOpacity(0.2),
       barrierDismissible: false,
       context: context,
       builder: (
-          context,
-          ) =>
+        context,
+      ) =>
           Center(
             child: BlurBody(
                 borderRadius: BorderRadius.circular(10),
@@ -21,17 +21,20 @@ void dialogError(context, String? message, void Function() retryFun,
                 width: context.width * 0.85,
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 15.0),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    SizedBox(
+                      height: 50,
+                      width: 150,
                       child: Container(
-                        width: 120,
-                        height: 50,
+                        padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                             border: Border.all(color: Colors.white),
                             borderRadius: BorderRadius.circular(10)),
-                        child: const Center(
-                          child: Text("Error",
-                              style: TextStyle(
+                        child: Center(
+                          child: Text(isError ? "خطاء" : "عملية ناجحة",
+                              style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold)),
@@ -65,19 +68,6 @@ void dialogError(context, String? message, void Function() retryFun,
                         children: [
                           GestureDetector(
                               onTap: () {
-                                retryFun();
-                                context.pop();
-                              },
-                              child: const BoxColor(
-                                width: 100,
-                                height: 50,
-                                child: Icon(
-                                  Icons.sync,
-                                  color: Colors.white,
-                                ),
-                              )),
-                          GestureDetector(
-                              onTap: () {
                                 Navigator.of(context).pop();
                               },
                               child: const BoxColor(
@@ -88,6 +78,21 @@ void dialogError(context, String? message, void Function() retryFun,
                                   color: Colors.white,
                                 ),
                               )),
+                          !isError
+                              ? const SizedBox()
+                              : GestureDetector(
+                                  onTap: () {
+                                    retryFun();
+                                    context.pop();
+                                  },
+                                  child: const BoxColor(
+                                    width: 100,
+                                    height: 50,
+                                    child: Icon(
+                                      Icons.sync,
+                                      color: Colors.white,
+                                    ),
+                                  )),
                         ],
                       ),
                     )

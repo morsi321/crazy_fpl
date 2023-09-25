@@ -37,17 +37,12 @@ class _MainScreenViewBodyState extends State<MainScreenViewBody> {
               children: orgCubit.widgetsOrg.isNotEmpty
                   ? orgCubit.widgetsOrg
                   : const [
-                      Center(
-                        child: Text(
-                          "",
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        ),
-                      )
+                      SizedBox()
                     ]);
         },
         listener: (BuildContext context, OrgState state) {
           if (state is FailureGetAllOrgs) {
-            dialogError(context, "حدث خطاء غير متوقع برجاء محاولة مره اخري",
+            dialogCustom(context, "حدث خطاء غير متوقع برجاء محاولة مره اخري",
                 () => orgCubit.getAllOrgs());
           }
         },

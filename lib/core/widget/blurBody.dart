@@ -3,8 +3,6 @@ import 'package:crazy_fpl/core/extension/MediaQueryValues.dart';
 
 import 'package:flutter/material.dart';
 
-
-
 class BlurBody extends StatelessWidget {
   const BlurBody(
       {Key? key,
@@ -33,23 +31,17 @@ class BlurBody extends StatelessWidget {
               const BorderRadius.vertical(
                 top: Radius.circular(30),
               ),
-          child: Image.asset(
-            backgroundImage ?? "assets/images/logo.png",
+          child: SizedBox(
             height: height ?? context.height * .63,
-            width: width ?? double.infinity,
-            fit: BoxFit.fill,
-          ),
-        ),
-        SizedBox(
-          height: height ?? context.height * .63,
-          width: width ?? context.width,
-          child: child.frosted(
-            frostColor: frostColor ?? Colors.black,
-            blur: blur ?? 40,
-            borderRadius: borderRadius ??
-                const BorderRadius.vertical(
-                  top: Radius.circular(30),
-                ),
+            width: width ?? context.width,
+            child: child.frosted(
+              frostColor: frostColor ?? Colors.black,
+              blur: blur ?? 40,
+              borderRadius: borderRadius ??
+                  const BorderRadius.vertical(
+                    top: Radius.circular(30),
+                  ),
+            ),
           ),
         ),
       ],
