@@ -13,9 +13,12 @@ import 'package:go_router/go_router.dart';
 
 import '../../feauters/Championships_org/presentation/views/championship.dart';
 import '../../feauters/ControlCaptain/Data/modles/PropertiesTeamModel.dart';
+import '../../feauters/classic_league/Data/models/ClassicLeague.dart';
+import '../../feauters/classic_league/presentation/views/classic_view.dart';
+import '../../feauters/classic_league/presentation/views/team_view/team_classic_view.dart';
 import '../../feauters/leagues/Data/models/info_League.dart';
 import '../../feauters/leagues/presentation/views/leagues_view.dart';
-import '../../feauters/matches league group/views/matches_league_group_view.dart';
+import '../../feauters/matches league group/presentation/views/matches_league_group_view.dart';
 import '../../feauters/open_champion/Presentation/views/open_champion_view.dart';
 import '../../feauters/teams/Data/modles/matches_team.dart';
 
@@ -33,6 +36,8 @@ class AppRouter {
   static String controlCaptain = '/controlCaptain';
   static String propertiesTeam = '/propertiesTeam';
   static String openChampion = '/OpenChampionView';
+  static String classicView = '/ClassicView';
+  static String teamClassicView = '/TeamClassicView';
 
   static final GoRouter router = GoRouter(
     routes: <RouteBase>[
@@ -47,6 +52,20 @@ class AppRouter {
         builder: (BuildContext context, GoRouterState state) {
           return PropertiesTeam(
             propertiesTeam: state.extra as PropertiesTeamModel,
+          );
+        },
+      ),GoRoute(
+        path: teamClassicView,
+        builder: (BuildContext context, GoRouterState state) {
+          return TeamClassicView(
+            classicLeague: state.extra as ClassicLeague,
+          );
+        },
+      ),GoRoute(
+        path: classicView,
+        builder: (BuildContext context, GoRouterState state) {
+          return ClassicView(
+            infoLeague: state.extra as InfoLeague,
           );
         },
       ),
